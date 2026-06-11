@@ -1,119 +1,540 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>InfoTEA</title>
-
-  <!-- Bootstrap -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.6.0/css/bootstrap.min.css">
-
-  <!-- Bootstrap Icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-    }
-    header {
-      color: white;
-      padding: 2rem 1rem;
-      text-align: center;
-    }
-    .section-title {
-      font-weight: bold;
-      margin-bottom: 20px;
-      color: #007BFF;
-    }
-    .card {
-      border-radius: 15px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-    footer {
-      background: linear-gradient(90deg, #007BFF, #FFD700, #FF4500, #32CD32);
-      color: white;
-      text-align: center;
-      padding: 15px;
-      margin-top: 30px;
-    }
-    footer a {
-      color: #fff;
-      background: rgba(0,0,0,0.2);
-      padding: 6px 12px;
-      border-radius: 10px;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: background 0.3s;
-    }
-    footer a:hover {
-      background: rgba(0,0,0,0.35);
-    }
-  </style>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>InfoTEA - Neurodiversidade</title>
+  <link rel="stylesheet" href="css/novo-style.css"/>
 </head>
 <body>
 
-  <!-- Cabeçalho -->
-  <header style="position:relative; min-height:320px; display:flex; align-items:center; justify-content:center; text-align:center; color:#fff;">
-    <img src="img/foto-tea.png" alt="Banner" 
-     style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;">
-
-    <div style="position:relative; z-index:1; text-shadow:1px 1px 4px rgba(0,0,0,.7);">
-      <h1>Inclusão e Informação</h1>
-      <p>Interface Acessível para pessoas com TEA</p>
+<!-- ═════════════════════ NAVBAR ═════════════════════ -->
+<nav>
+  <a class="nav-logo" href="#" onclick="showPage('home')">
+    <div class="nav-logo-icon">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 3C9.5 3 7.5 4.5 6.5 6.5C5 6.2 3 7.5 3 10C3 12 4.5 13.5 6 13.8V14C6 17.3 8.7 20 12 20C15.3 20 18 17.3 18 14V13.8C19.5 13.5 21 12 21 10C21 7.5 19 6.2 17.5 6.5C16.5 4.5 14.5 3 12 3Z" stroke="white" stroke-width="1.6" stroke-linejoin="round"/>
+        <circle cx="9.5" cy="11" r="1" fill="white"/>
+        <circle cx="14.5" cy="11" r="1" fill="white"/>
+        <path d="M9.5 14.5C10.2 15.4 11 15.8 12 15.8C13 15.8 13.8 15.4 14.5 14.5" stroke="white" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
     </div>
-  </header>
+    <div>
+      <span class="nav-logo-text">Info<span>TEA</span></span>
+      <span class="nav-logo-sub">Neurodiversidade</span>
+    </div>
+  </a>
 
-  <!-- Sobre -->
-  <section class="container my-5">
-    <h2 class="section-title">Sobre o Projeto</h2>
-     <img src="foto-tea.png/" alt="Autismo Inclusão" width="250" class="mb-3">
-    <p>
-      Este projeto nasceu da necessidade de criar um espaço digital confiável e acessível para pessoas com Transtorno do Espectro Autista (TEA), seus familiares e responsáveis. Muitas vezes, a informação disponível sobre o autismo é dispersa, pouco clara ou de difícil compreensão, o que dificulta o acesso a direitos, serviços especializados e orientações seguras.
-      Nosso objetivo é oferecer um site informativo, com design inclusivo e intuitivo, que permita uma navegação simples, cores de referência ao autismo e conteúdo organizado de forma clara. Assim, buscamos promover a inclusão, a conscientização e o apoio às pessoas autistas e à rede que as acompanha.
-    </p>
-  </section>
+  <div class="nav-links" id="navLinks">
+    <a href="#" onclick="showPage('home')" class="active" id="nav-home">Início</a>
+    <a href="#" onclick="showPage('pais')" id="nav-pais">Para Pais</a>
+    <a href="#" onclick="showPage('rede')" id="nav-rede">Rede de Apoio</a>
+    <a href="#" onclick="showPage('biblioteca')" id="nav-bib">Biblioteca</a>
+    <a href="#" onclick="showPage('contato')" id="nav-contato">Contato</a>
+    <a href="#" onclick="showPage('chat')" class="nav-chat" id="nav-chat">✦ Chat IA</a>
+    <a href="#" onclick="showPage('login')" class="btn-login" id="nav-login" style="display:none;">→ Login</a>
+    <a href="#" onclick="showPage('cadastro')" class="btn-cad" id="nav-cad" style="display:none;">Cadastre-se</a>
+  </div>
 
-  <!-- Recursos -->
-  <section class="container my-5">
-    <h2 class="section-title">Principais Informações</h2>
-    <div class="row">
-      <div class="col-md-4 mb-3">
-        <div class="card p-3">
-          <h5 class="card-title">Objetivo</h5>
-          <p class="card-text">Desenvolver um site inclusivo e informativo para pessoas com TEA, seus familiares e profissionais, promovendo acesso a informações claras sobre sintomas, tratamentos, direitos e serviços especializados.</p>
-        </div>
+  <div class="nav-actions" id="navActions">
+    <a href="#" onclick="showPage('login')" class="btn-login" id="nav-login2">→ Login</a>
+    <a href="#" onclick="showPage('cadastro')" class="btn-cad" id="nav-cad2">Cadastre-se</a>
+  </div>
+
+  <div class="nav-user" id="userGreeting" style="display:none;">
+    Olá, <span id="userNameDisplay"></span>
+  </div>
+
+  <button class="nav-mobile-toggle" onclick="toggleNav()">☰</button>
+</nav>
+
+<!-- ═════════════════════ HOME ═════════════════════ -->
+<div class="page active" id="page-home">
+  <div class="hero">
+    <div class="hero-tag">Informação que acolhe</div>
+    <div class="home-toast" id="home-toast">Bem-vindo(a)! Estamos felizes por você estar aqui.</div>
+    <h1>Entenda o autismo com <span class="accent">clareza</span> e empatia.</h1>
+    <p>Um guia completo para famílias e profissionais. Transformamos ciência em acolhimento para apoiar a jornada de cada pessoa neurodivergente.</p>
+    <div class="hero-btns">
+      <a href="#" class="btn-primary" onclick="showPage('pais')">Para Pais e Família</a>
+      <a href="#" class="btn-secondary" onclick="showPage('biblioteca')">Acessar Biblioteca</a>
+    </div>
+  </div>
+
+  <div class="cards-section">
+    <div class="cards-grid">
+      <div class="card" onclick="showPage('pais')">
+        <div class="card-icon blue">Família</div>
+        <h3>Para Pais</h3>
+        <p>Dicas reais para famílias, com explicações claras sobre diagnóstico, rotina e acolhimento.</p>
+        <div class="card-link">CONHECER →</div>
       </div>
-      <div class="col-md-4 mb-3">
-        <div class="card p-3">
-          <h5 class="card-title">Público-alvo</h5>
-          <p class="card-text">O site é voltado para pessoas com Transtorno do Espectro Autista, seus pais e responsáveis, além de profissionais da área da saúde, educação e pesquisa, que buscam informações confiáveis e organizadas.</p>
-        </div>
+      <div class="card" onclick="showPage('rede')">
+        <div class="card-icon orange">Apoio</div>
+        <h3>Rede de Apoio</h3>
+        <p>Conexões humanas com grupos, ONGs e especialistas que ajudam na prática cotidiana.</p>
+        <div class="card-link">CONHECER →</div>
       </div>
-      <div class="col-md-4 mb-3">
-        <div class="card p-3">
-          <h5 class="card-title">Funcionalidades</h5>
-          <p class="card-text">Inclui cadastro de usuários, profissionais, clínicas e publicações, consultas sobre sintomas e níveis de autismo, notícias atualizadas e contato direto para dúvidas e orientação, com design acessível e responsivo.</p>
-        </div>
+      <div class="card" onclick="showPage('biblioteca')">
+        <div class="card-icon teal">Leitura</div>
+        <h3>Biblioteca</h3>
+        <p>Materiais confiáveis para consultar sempre que surgir uma dúvida sobre TEA.</p>
+        <div class="card-link">CONHECER →</div>
+      </div>
+      <div class="card" onclick="showPage('chat')">
+        <div class="card-icon pink">Conversa</div>
+        <h3>Assistente IA</h3>
+        <p>Faça perguntas sobre autismo e receba respostas em linguagem simples e acolhedora.</p>
+        <div class="card-link">CONHECER →</div>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- Rodapé -->
+  <div class="faq-section">
+    <h2>Dúvidas comuns</h2>
+    <div class="faq-item">
+      <h4>O autismo tem cura?</h4>
+      <p>O autismo não é uma doença, mas uma condição de neurodesenvolvimento. Não se fala em cura, mas em suporte, terapias e adaptações que auxiliam na qualidade de vida.</p>
+    </div>
+    <div class="faq-item">
+      <h4>Quando devo procurar um especialista?</h4>
+      <p>Ao notar atrasos persistentes na fala, falta de contato visual, comportamentos repetitivos ou dificuldades de interação social. A intervenção precoce faz diferença.</p>
+    </div>
+    <div class="faq-item">
+      <h4>Existe um único tipo de autismo?</h4>
+      <p>Não. O TEA é um espectro. Cada pessoa apresenta uma combinação única de características, intensidades e necessidades de suporte.</p>
+    </div>
+  </div>
+
   <footer>
-    <p>© 2025 - Projeto Web Inclusivo | Desenvolvido por <b>Vitoria Escorcio</b></p>
-    <p>
-      <a href="contato.html">
-        <i class="bi bi-person-rolodex"></i> Entre em Contato
-      </a>
-    </p>
+    <a href="#" onclick="showPage('home')">
+      <div class="nav-logo-icon" style="width:28px;height:28px;"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3C9.5 3 7.5 4.5 6.5 6.5C5 6.2 3 7.5 3 10C3 12 4.5 13.5 6 13.8V14C6 17.3 8.7 20 12 20C15.3 20 18 17.3 18 14V13.8C19.5 13.5 21 12 21 10C21 7.5 19 6.2 17.5 6.5C16.5 4.5 14.5 3 12 3Z" stroke="white" stroke-width="1.6" stroke-linejoin="round"/><circle cx="9.5" cy="11" r="1" fill="white"/><circle cx="14.5" cy="11" r="1" fill="white"/><path d="M9.5 14.5C10.2 15.4 11 15.8 12 15.8C13 15.8 13.8 15.4 14.5 14.5" stroke="white" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+      <span style="font-weight:700;color:var(--navy);">Info<span style="color:var(--blue);">TEA</span> <span style="font-weight:400;font-size:0.7rem;letter-spacing:.1em;">NEURODIVERSIDADE</span></span>
+    </a>
+    <a href="https://github.com/Vitoria1705?tab=repositories" target="_blank">⌥ GITHUB</a>
+    <span>© 2026 InfoTEA, feito por <a href="https://github.com/Vitoria1705?tab=repositories" target="_blank" style="color:var(--blue);font-weight:600;">Vitoria</a>.</span>
   </footer>
+</div>
 
-  <!-- Bootstrap -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- ═════════════════════ PARA PAIS ═════════════════════ -->
+<div class="page" id="page-pais">
+  <div class="section-hero">
+    <h1>Para pais e família</h1>
+    <p>Acolher é o primeiro passo do cuidado. Reunimos as informações mais importantes que toda família precisa saber para apoiar uma criança ou adolescente no espectro autista.</p>
+  </div>
+
+  <div class="slides-wrapper">
+    <div class="slide-card active" id="slide-0">
+      <div class="slide-num">01 / 06</div>
+      <h2>Sinais de alerta</h2>
+      <p class="slide-sub">O que observar no comportamento do seu filho desde os primeiros meses.</p>
+      <ul>
+        <li>Pouco ou nenhum contato visual quando chamado pelo nome.</li>
+        <li>Atraso na fala ou perda de palavras já aprendidas.</li>
+        <li>Movimentos repetitivos (balançar mãos, girar objetos, alinhar brinquedos).</li>
+        <li>Reações intensas a sons, luzes, texturas ou cheiros.</li>
+        <li>Dificuldade em brincar de faz-de-conta ou em interagir com outras crianças.</li>
+      </ul>
+      <div class="slide-nav">
+        <button disabled>← Anterior</button>
+        <span class="slide-progress">1 de 6</span>
+        <button onclick="nextSlide()">Próximo →</button>
+      </div>
+    </div>
+
+    <div class="slide-card" id="slide-1">
+      <div class="slide-num">02 / 06</div>
+      <h2>Como buscar o diagnóstico</h2>
+      <p class="slide-sub">O caminho até um laudo confiável envolve uma equipe multidisciplinar.</p>
+      <ul>
+        <li>Comece pelo pediatra, peça uma avaliação do desenvolvimento.</li>
+        <li>Procure um neuropediatra, psiquiatra infantil ou neuropsicólogo.</li>
+        <li>Avaliações complementares: fonoaudiologia, terapia ocupacional e psicologia.</li>
+        <li>Não existe exame de sangue ou imagem que diagnostique TEA, o diagnóstico é clínico.</li>
+        <li>Quanto mais cedo iniciar o suporte, melhores os resultados.</li>
+      </ul>
+      <div class="slide-nav">
+        <button onclick="prevSlide()">← Anterior</button>
+        <span class="slide-progress">2 de 6</span>
+        <button onclick="nextSlide()">Próximo →</button>
+      </div>
+    </div>
+
+    <div class="slide-card" id="slide-2">
+      <div class="slide-num">03 / 06</div>
+      <h2>Rotina em casa</h2>
+      <p class="slide-sub">Previsibilidade reduz a ansiedade e dá segurança à criança.</p>
+      <ul>
+        <li>Use quadros visuais com a sequência do dia (acordar, escola, almoço, terapia).</li>
+        <li>Antecipe mudanças: avise antes de sair, trocar de atividade ou receber visita.</li>
+        <li>Crie um cantinho de regulação com itens sensoriais (almofadas, fones, brinquedos).</li>
+        <li>Reforce as conquistas com elogios concretos: "Você guardou os brinquedos sozinho!"</li>
+        <li>Cuide do ambiente sensorial: luzes amenas, sons controlados, roupas confortáveis.</li>
+      </ul>
+      <div class="slide-nav">
+        <button onclick="prevSlide()">← Anterior</button>
+        <span class="slide-progress">3 de 6</span>
+        <button onclick="nextSlide()">Próximo →</button>
+      </div>
+    </div>
+
+    <div class="slide-card" id="slide-3">
+      <div class="slide-num">04 / 06</div>
+      <h2>Direitos garantidos por lei</h2>
+      <p class="slide-sub">Conhecer a legislação é parte do cuidado.</p>
+      <ul>
+        <li>Lei 12.764/2012 (Berenice Piana): equipara a pessoa com TEA à pessoa com deficiência.</li>
+        <li>Lei Brasileira de Inclusão (13.146/2015): garante acessibilidade e inclusão.</li>
+        <li>Carteira de Identificação da Pessoa com TEA (CIPTEA): direito a prioridade em filas e atendimentos.</li>
+        <li>BPC/LOAS: benefício para famílias de baixa renda.</li>
+        <li>Cobertura obrigatória por planos de saúde de terapias como ABA, fono, TO e psicologia.</li>
+      </ul>
+      <div class="slide-nav">
+        <button onclick="prevSlide()">← Anterior</button>
+        <span class="slide-progress">4 de 6</span>
+        <button onclick="nextSlide()">Próximo →</button>
+      </div>
+    </div>
+
+    <div class="slide-card" id="slide-4">
+      <div class="slide-num">05 / 06</div>
+      <h2>Escola inclusiva</h2>
+      <p class="slide-sub">A escola é um direito, e adaptações são obrigatórias.</p>
+      <ul>
+        <li>Toda escola, pública ou privada, é obrigada a matricular crianças com TEA.</li>
+        <li>Direito a profissional de apoio escolar quando necessário.</li>
+        <li>Plano Educacional Individualizado (PEI) deve ser construído junto com a família.</li>
+        <li>Avaliações e atividades podem ser adaptadas ao perfil do estudante.</li>
+        <li>Mantenha diálogo aberto e frequente com professores e coordenação.</li>
+      </ul>
+      <div class="slide-nav">
+        <button onclick="prevSlide()">← Anterior</button>
+        <span class="slide-progress">5 de 6</span>
+        <button onclick="nextSlide()">Próximo →</button>
+      </div>
+    </div>
+
+    <div class="slide-card" id="slide-5">
+      <div class="slide-num">06 / 06</div>
+      <h2>Cuidando de quem cuida</h2>
+      <p class="slide-sub">Você não precisa (e não deve) dar conta de tudo sozinho.</p>
+      <ul>
+        <li>Reserve momentos só para você, não é egoísmo, é sustentabilidade.</li>
+        <li>Procure grupos de pais: trocar experiências alivia e ensina.</li>
+        <li>Considere acompanhamento psicológico para a família toda.</li>
+        <li>Divida tarefas com parceiro(a), familiares e rede de apoio.</li>
+        <li>Lembre-se: criança regulada nasce de adulto regulado.</li>
+      </ul>
+      <div class="slide-nav">
+        <button onclick="prevSlide()">← Anterior</button>
+        <span class="slide-progress">6 de 6</span>
+        <button disabled>Próximo →</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <a href="#" onclick="showPage('home')">
+      <div class="nav-logo-icon" style="width:28px;height:28px;"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3C9.5 3 7.5 4.5 6.5 6.5C5 6.2 3 7.5 3 10C3 12 4.5 13.5 6 13.8V14C6 17.3 8.7 20 12 20C15.3 20 18 17.3 18 14V13.8C19.5 13.5 21 12 21 10C21 7.5 19 6.2 17.5 6.5C16.5 4.5 14.5 3 12 3Z" stroke="white" stroke-width="1.6" stroke-linejoin="round"/><circle cx="9.5" cy="11" r="1" fill="white"/><circle cx="14.5" cy="11" r="1" fill="white"/><path d="M9.5 14.5C10.2 15.4 11 15.8 12 15.8C13 15.8 13.8 15.4 14.5 14.5" stroke="white" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+      <span style="font-weight:700;color:var(--navy);">Info<span style="color:var(--blue);">TEA</span></span>
+    </a>
+    <a href="https://github.com/Vitoria1705?tab=repositories" target="_blank">⌥ GITHUB</a>
+    <span>© 2026 InfoTEA, feito por <a href="https://github.com/Vitoria1705?tab=repositories" target="_blank" style="color:var(--blue);font-weight:600;">Vitoria</a>.</span>
+  </footer>
+</div>
+
+<!-- ═════════════════════ REDE DE APOIO ═════════════════════ -->
+<div class="page" id="page-rede">
+  <div class="rede-hero">
+    <h1>Rede de apoio</h1>
+    <p style="color:var(--gray-600)">Ninguém precisa caminhar sozinho. Conheça organizações, ONGs e movimentos que apoiam pessoas autistas e suas famílias em todo o Brasil.</p>
+  </div>
+
+  <div class="rede-grid">
+    <div class="rede-card">
+      <div class="rede-tag">ONG nacional</div>
+      <h3>AMA - Associação de Amigos do Autista</h3>
+      <p>Atendimento clínico, educacional e suporte às famílias desde 1983.</p>
+      <div class="rede-loc">📍 São Paulo, SP</div>
+      <a href="https://ama.org.br" target="_blank">ama.org.br ↗</a>
+    </div>
+    <div class="rede-card">
+      <div class="rede-tag">Defesa de direitos</div>
+      <h3>Abraça - Associação Brasileira para Ação por Direitos das Pessoas Autistas</h3>
+      <p>Atuação política, jurídica e de conscientização sobre direitos das pessoas no espectro.</p>
+      <div class="rede-loc">📍 Brasília, DF</div>
+      <a href="https://abraca.autismobrasil.org" target="_blank">abraca.autismobrasil.org ↗</a>
+    </div>
+    <div class="rede-card">
+      <div class="rede-tag">Pesquisa e genética</div>
+      <h3>Tismoo</h3>
+      <p>Pesquisa científica em autismo e medicina personalizada baseada em genética.</p>
+      <div class="rede-loc">📍 São Paulo, SP</div>
+      <a href="https://tismoo.us" target="_blank">tismoo.us ↗</a>
+    </div>
+    <div class="rede-card">
+      <div class="rede-tag">Movimento social</div>
+      <h3>Movimento Orgulho Autista Brasil</h3>
+      <p>Pais, mães, autistas e profissionais unidos pela aceitação e inclusão.</p>
+      <div class="rede-loc">📍 Nacional</div>
+      <a href="https://moab.org.br" target="_blank">moab.org.br ↗</a>
+    </div>
+    <div class="rede-card">
+      <div class="rede-tag">Educação inclusiva</div>
+      <h3>Instituto Inclusão Brasil</h3>
+      <p>Formação de professores e consultoria para escolas inclusivas.</p>
+      <div class="rede-loc">📍 Rio de Janeiro, RJ</div>
+      <a href="https://inclusaobrasil.org.br" target="_blank">inclusaobrasil.org.br ↗</a>
+    </div>
+    <div class="rede-card">
+      <div class="rede-tag">Informação e formação</div>
+      <h3>Autismo & Realidade</h3>
+      <p>Cursos, materiais e capacitação para famílias e profissionais.</p>
+      <div class="rede-loc">📍 São Paulo, SP</div>
+      <a href="https://autismoerealidade.org.br" target="_blank">autismoerealidade.org.br ↗</a>
+    </div>
+  </div>
+
+  <div class="cvv-box">
+    <strong>Precisa de ajuda agora?</strong><br>
+    CVV - Centro de Valorização da Vida atende gratuitamente todos os dias, 24h, pelo telefone <strong>188</strong>.
+  </div>
+
+  <div class="partner-box">
+    <div class="partner-tag">🤝 FAÇA PARTE</div>
+    <h2>Venha ser nosso parceiro</h2>
+    <p>Sua organização, escola ou clínica também atua com pessoas autistas? Cadastre-se gratuitamente e amplie o alcance do seu trabalho conectando-se a famílias que precisam de apoio.</p>
+    <a href="#" class="btn-dark" onclick="showPage('contato')">Cadastrar minha instituição →</a>
+  </div>
+
+  <footer>
+    <a href="#" onclick="showPage('home')">
+      <div class="nav-logo-icon" style="width:28px;height:28px;"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3C9.5 3 7.5 4.5 6.5 6.5C5 6.2 3 7.5 3 10C3 12 4.5 13.5 6 13.8V14C6 17.3 8.7 20 12 20C15.3 20 18 17.3 18 14V13.8C19.5 13.5 21 12 21 10C21 7.5 19 6.2 17.5 6.5C16.5 4.5 14.5 3 12 3Z" stroke="white" stroke-width="1.6" stroke-linejoin="round"/><circle cx="9.5" cy="11" r="1" fill="white"/><circle cx="14.5" cy="11" r="1" fill="white"/><path d="M9.5 14.5C10.2 15.4 11 15.8 12 15.8C13 15.8 13.8 15.4 14.5 14.5" stroke="white" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+      <span style="font-weight:700;color:var(--navy);">Info<span style="color:var(--blue);">TEA</span></span>
+    </a>
+    <a href="https://github.com/Vitoria1705?tab=repositories" target="_blank">⌥ GITHUB</a>
+    <span>© 2026 InfoTEA, feito por <a href="https://github.com/Vitoria1705?tab=repositories" target="_blank" style="color:var(--blue);font-weight:600;">Vitoria</a>.</span>
+  </footer>
+</div>
+
+<!-- ═════════════════════ BIBLIOTECA ═════════════════════ -->
+<div class="page" id="page-biblioteca">
+  <div class="section-hero">
+    <h1>Biblioteca</h1>
+    <p>Materiais selecionados, sempre gratuitos. Cartilhas oficiais, artigos científicos, ebooks, vídeos e podcasts revisados pela nossa equipe para apoiar pais, educadores e profissionais.</p>
+  </div>
+
+  <div class="bib-grid">
+    <div class="bib-card">
+      <span class="bib-type type-cartilha">Cartilha oficial</span>
+      <h3>Linha de Cuidado para a Atenção às Pessoas com TEA</h3>
+      <p>Documento do Ministério da Saúde com orientações sobre identificação precoce, diagnóstico e cuidado integral no SUS.</p>
+      <div class="bib-footer">
+        <span class="bib-source">Ministério da Saúde</span>
+        <a href="https://bvsms.saude.gov.br/bvs/publicacoes/linha_cuidado_atencao_pessoas_transtorno.pdf" target="_blank" class="bib-link">Acessar</a>
+      </div>
+    </div>
+    <div class="bib-card">
+      <span class="bib-type type-ebook">Ebook</span>
+      <h3>Lei Brasileira de Inclusão (LBI) comentada</h3>
+      <p>Versão acessível da Lei 13.146/2015, garantindo direitos da pessoa com deficiência, incluindo TEA.</p>
+      <div class="bib-footer">
+        <span class="bib-source">Senado Federal</span>
+        <a href="https://www2.senado.leg.br/bdsf/handle/id/513623" target="_blank" class="bib-link">Acessar</a>
+      </div>
+    </div>
+    <div class="bib-card">
+      <span class="bib-type type-artigo">Artigo científico</span>
+      <h3>Sinais precoces de TEA: revisão sistemática</h3>
+      <p>Estudo de revisão sobre marcos do desenvolvimento e indicadores observáveis entre 0 e 36 meses.</p>
+      <div class="bib-footer">
+        <span class="bib-source">SciELO Brasil</span>
+        <a href="https://www.scielo.br/j/csc/a/zKM3PLNS5BkBJ6JYCnSwS3w/?lang=pt" target="_blank" class="bib-link">Acessar</a>
+      </div>
+    </div>
+    <div class="bib-card">
+      <span class="bib-type type-manual">Manual escolar</span>
+      <h3>A inclusão escolar de alunos com TEA</h3>
+      <p>Orientações práticas para gestores, professores e famílias sobre o Plano Educacional Individualizado.</p>
+      <div class="bib-footer">
+        <span class="bib-source">MEC - Secadi</span>
+        <a href="http://portal.mec.gov.br/secadi" target="_blank" class="bib-link">Acessar</a>
+      </div>
+    </div>
+    <div class="bib-card">
+      <span class="bib-type type-video">Vídeo (TED)</span>
+      <h3>Como o autismo me libertou para ser eu mesma</h3>
+      <p>Talk de Rosie King em português: a perspectiva de uma jovem autista sobre identidade e neurodiversidade.</p>
+      <div class="bib-footer">
+        <span class="bib-source">TED</span>
+        <a href="https://www.ted.com/talks/rosie_king_how_autism_freed_me_to_be_myself?language=pt-br" target="_blank" class="bib-link">Acessar</a>
+      </div>
+    </div>
+    <div class="bib-card">
+      <span class="bib-type type-podcast">Podcast</span>
+      <h3>Introvertendo - vozes autistas</h3>
+      <p>Podcast feito por autistas com episódios sobre rotina, escola, trabalho, masking e direitos.</p>
+      <div class="bib-footer">
+        <span class="bib-source">Introvertendo</span>
+        <a href="https://introvertendo.com.br/" target="_blank" class="bib-link">Acessar</a>
+      </div>
+    </div>
+  </div>
+
+  <p class="bib-suggest">Conhece algum material gratuito e confiável que poderia entrar nesta lista? <a href="#" onclick="showPage('contato')">Envie sua sugestão</a>.</p>
+
+  <footer>
+    <a href="#" onclick="showPage('home')">
+      <div class="nav-logo-icon" style="width:28px;height:28px;"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3C9.5 3 7.5 4.5 6.5 6.5C5 6.2 3 7.5 3 10C3 12 4.5 13.5 6 13.8V14C6 17.3 8.7 20 12 20C15.3 20 18 17.3 18 14V13.8C19.5 13.5 21 12 21 10C21 7.5 19 6.2 17.5 6.5C16.5 4.5 14.5 3 12 3Z" stroke="white" stroke-width="1.6" stroke-linejoin="round"/><circle cx="9.5" cy="11" r="1" fill="white"/><circle cx="14.5" cy="11" r="1" fill="white"/><path d="M9.5 14.5C10.2 15.4 11 15.8 12 15.8C13 15.8 13.8 15.4 14.5 14.5" stroke="white" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+      <span style="font-weight:700;color:var(--navy);">Info<span style="color:var(--blue);">TEA</span></span>
+    </a>
+    <a href="https://github.com/Vitoria1705?tab=repositories" target="_blank">⌥ GITHUB</a>
+    <span>© 2026 InfoTEA, feito por <a href="https://github.com/Vitoria1705?tab=repositories" target="_blank" style="color:var(--blue);font-weight:600;">Vitoria</a>.</span>
+  </footer>
+</div>
+
+<!-- ═════════════════════ CONTATO ═════════════════════ -->
+<div class="page" id="page-contato">
+  <div class="contato-wrapper">
+    <h1>Contato</h1>
+    <p>Fale com a InfoTEA. Dúvidas, sugestões de pauta, parcerias com ONGs ou pedidos de imprensa, respondemos em até 3 dias úteis.</p>
+    <div class="contato-meta">
+      <div class="contato-meta-item"><strong>E-mail</strong>contato@infotea.com.br</div>
+      <div class="contato-meta-item"><strong>Onde estamos</strong>São Paulo, Brasil</div>
+    </div>
+    <div class="form-group">
+      <label>NOME</label>
+      <input type="text" placeholder="Seu nome completo" id="c-nome"/>
+    </div>
+    <div class="form-group">
+      <label>E-MAIL</label>
+      <input type="email" placeholder="seu@email.com" id="c-email"/>
+    </div>
+    <div class="form-group">
+      <label>ASSUNTO</label>
+      <input type="text" placeholder="Assunto da mensagem" id="c-assunto"/>
+    </div>
+    <div class="form-group">
+      <label>MENSAGEM</label>
+      <textarea placeholder="Escreva sua mensagem aqui..." id="c-msg"></textarea>
+    </div>
+    <button class="btn-primary" style="width:100%;border-radius:10px;padding:14px;" onclick="enviarContato()">Enviar mensagem</button>
+    <div class="form-success" id="form-ok">✓ Mensagem enviada! Responderemos em até 3 dias úteis.</div>
+  </div>
+  <footer>
+    <a href="#" onclick="showPage('home')">
+      <div class="nav-logo-icon" style="width:28px;height:28px;"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3C9.5 3 7.5 4.5 6.5 6.5C5 6.2 3 7.5 3 10C3 12 4.5 13.5 6 13.8V14C6 17.3 8.7 20 12 20C15.3 20 18 17.3 18 14V13.8C19.5 13.5 21 12 21 10C21 7.5 19 6.2 17.5 6.5C16.5 4.5 14.5 3 12 3Z" stroke="white" stroke-width="1.6" stroke-linejoin="round"/><circle cx="9.5" cy="11" r="1" fill="white"/><circle cx="14.5" cy="11" r="1" fill="white"/><path d="M9.5 14.5C10.2 15.4 11 15.8 12 15.8C13 15.8 13.8 15.4 14.5 14.5" stroke="white" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+      <span style="font-weight:700;color:var(--navy);">Info<span style="color:var(--blue);">TEA</span></span>
+    </a>
+    <a href="https://github.com/Vitoria1705?tab=repositories" target="_blank">⌥ GITHUB</a>
+    <span>© 2026 InfoTEA, feito por <a href="https://github.com/Vitoria1705?tab=repositories" target="_blank" style="color:var(--blue);font-weight:600;">Vitoria</a>.</span>
+  </footer>
+</div>
+
+<!-- ═════════════════════ CHAT IA ═════════════════════ -->
+<div class="page" id="page-chat">
+  <div style="max-width:720px;margin:0 auto;padding:40px 2rem 80px;">
+    <div style="text-align:center;margin-bottom:2rem;">
+      <h1 style="font-size:1.8rem;font-weight:900;margin-bottom:.5rem;">Chat IA - Assistente InfoTEA</h1>
+      <p style="color:var(--gray-600);font-size:.9rem;">Tire dúvidas sobre TEA em tempo real. Nossas respostas são baseadas em informações científicas, mas não substituem orientação médica.</p>
+    </div>
+    <div id="chat-messages" style="background:var(--gray-50);border:1px solid var(--gray-200);border-radius:var(--radius);padding:24px;min-height:360px;max-height:500px;overflow-y:auto;display:flex;flex-direction:column;gap:12px;">
+      <div style="background:white;border:1px solid var(--gray-200);border-radius:12px;padding:14px 18px;max-width:85%;font-size:.9rem;color:var(--gray-700);">
+        <strong style="color:var(--blue);display:block;margin-bottom:4px;font-size:.75rem;">✦ Assistente InfoTEA</strong>
+        Olá! Sou o assistente virtual do InfoTEA. Posso responder dúvidas sobre autismo, sinais, diagnóstico, direitos legais, rotina e muito mais. Como posso te ajudar?
+      </div>
+    </div>
+    <div style="display:flex;gap:10px;margin-top:12px;">
+      <input id="chat-input" type="text" placeholder="Escreva sua dúvida sobre TEA..." 
+        style="flex:1;padding:12px 16px;border:1.5px solid var(--gray-200);border-radius:30px;font-size:.9rem;outline:none;font-family:var(--font);"
+        onkeydown="if(event.key==='Enter')sendChat()"
+        onfocus="this.style.borderColor='var(--blue)'" onblur="this.style.borderColor='var(--gray-200)'"/>
+      <button class="btn-primary" style="border-radius:30px;padding:12px 22px;" onclick="sendChat()">Enviar</button>
+    </div>
+    <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
+      <button onclick="quickChat('O que é TEA?')" style="background:var(--gray-100);border:none;border-radius:20px;padding:6px 14px;font-size:.8rem;cursor:pointer;color:var(--gray-700);">O que é TEA?</button>
+      <button onclick="quickChat('Como percebo sinais de autismo em bebês?')" style="background:var(--gray-100);border:none;border-radius:20px;padding:6px 14px;font-size:.8rem;cursor:pointer;color:var(--gray-700);">Sinais em bebês</button>
+      <button onclick="quickChat('Quais direitos tenho como pai ou mãe de criança autista?')" style="background:var(--gray-100);border:none;border-radius:20px;padding:6px 14px;font-size:.8rem;cursor:pointer;color:var(--gray-700);">Direitos e apoio</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═════════════════════ LOGIN ═════════════════════ -->
+<div class="page" id="page-login">
+  <div class="auth-wrapper">
+    <a href="#" class="auth-logo" onclick="showPage('home')">
+      <div class="nav-logo-icon" style="width:28px;height:28px;"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3C9.5 3 7.5 4.5 6.5 6.5C5 6.2 3 7.5 3 10C3 12 4.5 13.5 6 13.8V14C6 17.3 8.7 20 12 20C15.3 20 18 17.3 18 14V13.8C19.5 13.5 21 12 21 10C21 7.5 19 6.2 17.5 6.5C16.5 4.5 14.5 3 12 3Z" stroke="white" stroke-width="1.6" stroke-linejoin="round"/><circle cx="9.5" cy="11" r="1" fill="white"/><circle cx="14.5" cy="11" r="1" fill="white"/><path d="M9.5 14.5C10.2 15.4 11 15.8 12 15.8C13 15.8 13.8 15.4 14.5 14.5" stroke="white" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+      <div>
+        <span class="nav-logo-text">Info<span>TEA</span></span>
+        <span class="nav-logo-sub">NEURODIVERSIDADE</span>
+      </div>
+    </a>
+    <div class="auth-box">
+      <h2>Entrar</h2>
+      <p class="auth-sub">Acesse para conversar com o assistente IA sobre autismo.</p>
+      <div class="form-group">
+        <label>NOME</label>
+        <input id="login-name" type="text" placeholder="Seu nome completo"/>
+      </div>
+      <div class="form-group">
+        <label>NOME</label>
+        <input id="login-name" type="text" placeholder="Seu nome completo"/>
+      </div>
+      <div class="form-group">
+        <label>E-MAIL</label>
+        <input id="login-email" type="email" placeholder="seu@email.com"/>
+      </div>
+      <div class="form-group">
+        <label>SENHA</label>
+        <input id="login-password" type="password" placeholder="••••••••"/>
+      </div>
+      <button class="btn-primary" style="width:100%;border-radius:10px;padding:14px;" onclick="loginSuccess()">Entrar</button>
+      <div class="auth-success" id="login-ok">Login realizado com sucesso. Bem-vindo(a) de volta!</div>
+      <div class="auth-toggle">Não tem conta? <a onclick="showPage('cadastro')">Cadastre-se agora</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═════════════════════ CADASTRO ═════════════════════ -->
+<div class="page" id="page-cadastro">
+  <div class="auth-wrapper">
+    <a href="#" class="auth-logo" onclick="showPage('home')">
+      <div class="nav-logo-icon" style="width:28px;height:28px;"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3C9.5 3 7.5 4.5 6.5 6.5C5 6.2 3 7.5 3 10C3 12 4.5 13.5 6 13.8V14C6 17.3 8.7 20 12 20C15.3 20 18 17.3 18 14V13.8C19.5 13.5 21 12 21 10C21 7.5 19 6.2 17.5 6.5C16.5 4.5 14.5 3 12 3Z" stroke="white" stroke-width="1.6" stroke-linejoin="round"/><circle cx="9.5" cy="11" r="1" fill="white"/><circle cx="14.5" cy="11" r="1" fill="white"/><path d="M9.5 14.5C10.2 15.4 11 15.8 12 15.8C13 15.8 13.8 15.4 14.5 14.5" stroke="white" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+      <div>
+        <span class="nav-logo-text">Info<span>TEA</span></span>
+        <span class="nav-logo-sub">NEURODIVERSIDADE</span>
+      </div>
+    </a>
+    <div class="auth-box">
+      <h2>Criar conta</h2>
+      <p class="auth-sub">Crie uma conta gratuita em segundos.</p>
+      <div class="form-group">
+        <label>NOME</label>
+        <input id="signup-name" type="text" placeholder="Seu nome completo"/>
+      </div>
+      <div class="form-group">
+        <label>NOME</label>
+        <input id="signup-name" type="text" placeholder="Seu nome completo"/>
+      </div>
+      <div class="form-group">
+        <label>E-MAIL</label>
+        <input id="signup-email" type="email" placeholder="seu@email.com"/>
+      </div>
+      <div class="form-group">
+        <label>SENHA</label>
+        <input id="signup-password" type="password" placeholder="••••••••"/>
+        <p class="pwd-hint">Use ao menos 8 caracteres, combinando letras, números e símbolos.</p>
+      </div>
+      <button class="btn-primary" style="width:100%;border-radius:10px;padding:14px;" onclick="cadastroSuccess()">Cadastre-se</button>
+      <div class="auth-success" id="signup-ok">Sua conta foi criada com sucesso! Agora você pode fazer login ou usar o chat.</div>
+      <div class="auth-toggle">Já tem conta? <a onclick="showPage('login')">Fazer login</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═════════════════════ CHAT FAB ═════════════════════ -->
+<a href="#" class="chat-fab" id="chatFab" onclick="showPage('chat')">✦ Chat IA</a>
+
+<script src="js/novo-main.js"></script>
 </body>
 </html>
-
-
