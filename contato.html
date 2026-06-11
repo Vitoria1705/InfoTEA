@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contato</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.6.0/css/bootstrap.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8f9fa;
+    }
+    .container {
+      max-width: 600px;
+      margin-top: 60px;
+    }
+    .card {
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 25px;
+    }
+    h2 {
+      text-align: center;
+      color: #007BFF;
+      margin-bottom: 20px;
+    }
+    button {
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="card">
+      <h2>Entre em Contato</h2>
+      <form action="https://formsubmit.co/fernandesescorcio4@gmail.com" method="POST">
+        <!-- Configurações extras -->
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="obrigado.html">
+
+        <div class="form-group">
+          <label for="nome">Nome</label>
+          <input type="text" name="nome" class="form-control" id="nome" placeholder="Seu nome" required>
+        </div>
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input type="email" name="email" class="form-control" id="email" placeholder="Seu e-mail" required>
+        </div>
+        <div class="form-group">
+          <label for="mensagem">Mensagem</label>
+          <textarea name="mensagem" class="form-control" id="mensagem" rows="3" placeholder="Digite sua mensagem ou pergunta" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>
