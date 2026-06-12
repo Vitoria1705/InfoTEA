@@ -184,7 +184,7 @@ nav {
   display: flex;
   align-items: center;
   gap: 6px;
-  background: var(--navy);
+  background: var(--blue);
   color: white;
   padding: 7px 16px;
   border-radius: 20px;
